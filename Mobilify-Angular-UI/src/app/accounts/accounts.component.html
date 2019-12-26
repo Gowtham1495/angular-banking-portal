@@ -1,0 +1,167 @@
+<!-- <div class="listofdiv" *ngFor="let accounts of accountLists" (click)="balance(accounts)">
+  <p *ngIf="accountstatus; then thenBlock else elseBlock"></p>
+  <ng-template #thenBlock>
+    <p class="textfont">{{accounts.accounType}}</p>
+    <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+      matTooltip="Account Status : Active">
+      <img class="imgchange" src=" assets/img/check.png">
+    </span>
+  </ng-template>
+  <ng-template #elseBlock>
+    <p class="textfont">{{accounts.accounType}}</p>
+    <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+      matTooltip="Account Status : Active">
+      <img class="imgchange" src=" assets/img/wrong.png">
+    </span>
+  </ng-template> -->
+<!-- <ng-template #thenBlock>
+    <mat-icon mat-list-icon>error_outline</mat-icon>
+  </ng-template>
+  <ng-template #elseBlock class="accountlable">
+    <mat-icon mat-list-icon>error_outline</mat-icon>
+  </ng-template> -->
+<!-- </div> -->
+
+<!-- <div class="displayorder" [hidden]="balancehide" (click)="balanceHide()">
+  <span class="accountlable">Available Balance : {{availableBalance}}</span>
+  <span class="importanticon" mat-raised-button
+    matTooltip="Your available balance is the money in your checking/saving accounts thats currently available.">
+    <mat-icon mat-list-icon>error_outline</mat-icon>
+  </span>
+</div>
+<div class="tablediv" [hidden]="tablehide">
+  <table class="customtable">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Posted Date</th>
+        <th scope="col">Details</th>
+        <th scope="col">Type</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Posted Balance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactionLists; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          {{ transaction.postedDate }}
+        </td>
+        <td>{{ transaction.desc }}</td>
+        <td>{{ transaction.transactionType }}</td>
+        <td>{{ transaction.transactionAmtDisp }}</td>
+        <td>{{ transaction.postedBalance }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<!-- <div class="mat-elevation-z8" *ngFor="let transaction of transactionLists">
+  <table>
+    <th> Posted Date </th>
+    <td> {{transaction.postedDate}} </td>
+    <th> Details </th>
+    <td> {{transaction.desc}} </td>
+    <th> Type </th>
+    <td> {{transaction.transactionType}} </td>
+    <th> Amount </th>
+    <td> {{transaction.transactionAmtDisp}} </td>
+
+
+  </table>
+
+
+</div> -->
+
+
+<!-- <div class="card" *ngFor="let accounts of accountLists" (click)="balance(accounts)">
+  <p *ngIf="accountstatus; then thenBlock else elseBlock"></p>
+  <ng-template #thenBlock>
+    <p class="textfont">{{accounts.accounType}}</p>
+    <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+      matTooltip="Account Status : Active">
+      <img class="imgchange" src=" assets/img/check.png">
+    </span>
+  </ng-template>
+  <ng-template #elseBlock>
+    <p class="textfont">{{accounts.accounType}}</p>
+    <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+      matTooltip="Account Status : Active">
+      <img class="imgchange" src=" assets/img/wrong.png">
+    </span>
+  </ng-template>
+  <div class="container">
+
+  </div>
+</div> -->
+
+<div>
+
+  <mat-card class="example-card" *ngFor="let accounts of accountLists" (click)="balance(accounts)">
+    <mat-card-content>
+      <p *ngIf="accountstatus; then thenBlock else elseBlock"></p>
+      <ng-template #thenBlock>
+        <p class="textfont">{{accounts.accounType}}</p>
+        <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+          matTooltip="Account Status : Active">
+          <img class="imgchange" src=" assets/img/check.png">
+        </span>
+      </ng-template>
+      <ng-template #elseBlock>
+        <p class="textfont">{{accounts.accounType}}</p>
+        <p class="acnfont">{{accounts.accountNumber}}</p> <span class="importanticon" mat-raised-button
+          matTooltip="Account Status : Active">
+          <img class="imgchange" src=" assets/img/wrong.png">
+        </span>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- <div class="balancediv" [hidden]="balancehide" (click)="balanceHide()">
+    <span class="accountlable">Available Balance : {{availableBalance}}</span>
+
+  </div> -->
+
+  <mat-card class="balancediv" [hidden]="balancehide" (click)="balanceHide()">
+    <mat-card-content>
+
+
+      <span class="accountlable">Available Balance : {{availableBalance}}</span>
+
+    </mat-card-content>
+  </mat-card>
+
+
+  <table [dataSource]="transactionLists" mat-table class="mat-elevation-z8" [hidden]="tablehide">
+
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.postedDate}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.desc}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <th mat-header-cell *matHeaderCellDef> Weight </th>
+      <td mat-cell *matCellDef="let element">{{element.transactionType}}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.transactionAmtDisp}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+
+</div>

@@ -1,0 +1,21 @@
+.mat-sidenav-containers {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.toolbar-filler {
+  flex: 1 1 auto
+}
+
+.applistofdiv {
+  height: 117px;
+  width: 1030px;
+  margin-bottom: -32px;
+  margin-top: 36px;
+  margin-left: 44px;
+  left: 81px;
+  left: 81px;
+  position: relative;
+  border: 1px solid rgb(160, 126, 126);
+}

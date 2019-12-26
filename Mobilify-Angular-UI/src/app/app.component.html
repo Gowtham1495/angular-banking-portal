@@ -1,0 +1,43 @@
+<mat-sidenav-container fullscreen>
+  <!-- *ngIf="isLogged" class="mat-sidenav-containers"-->
+  <mat-sidenav #sidenav mode="push" class="app-sidenav">
+    <mat-toolbar color="primary">
+
+      <span class="toolbar-filler">
+        <mat-icon mat-list-icon>account_circle</mat-icon> Hi {{user}}
+      </span>
+      <span class="toolbar-filler"></span>
+      <button mat-icon-button (click)="sidenav.toggle()" class="md-icon-button sidenav-toggle-button"
+        [hidden]="!sidenav.opened">
+        <mat-icon aria-label="Menu" class="material-icons">close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item [routerLink]="'/accounts'" (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>account_balance</mat-icon>Accounts
+      </a>
+      <a mat-list-item class="sidenav-link" [routerLink]="'/accounts'" (click)="sidenav.toggle()"> Create Account </a>
+      <a mat-list-item [routerLink]="'/contacts'" (click)="sidenav.toggle()"> Contacts </a>
+      <a mat-list-item [routerLink]="'/create-contact'" (click)="sidenav.toggle()"> Create Contact </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar id="appToolbar" color="primary">
+    <button *ngIf="isLogged" mat-icon-button (click)="sidenav.toggle()" class="mat-icon-button sidenav-toggle-button"
+      [hidden]="sidenav.opened">
+      <mat-icon aria-label="Menu" class="material-icons">menu</mat-icon>
+    </button>
+    <span class="toolbar-filler"></span>
+    <span class="toolbar-filler" style="color:#270b8a">
+      <mat-icon mat-list-icon>stay_primary_portrait</mat-icon>Mobilify
+    </span>
+    <span *ngIf="isLogged" id="button-logout" mat-button [matMenuTriggerFor]="belowMenu">
+      <mat-icon mat-list-icon>account_circle</mat-icon>
+    </span>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <span mat-menu-item (click)="confirmDialog()">Logout</span>
+      <span mat-menu-item>Help</span>
+    </mat-menu>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

@@ -1,0 +1,32 @@
+.title {
+  padding: 1.5%;
+  font-size: 2.5vh !important;
+  background: #00467f;
+  color: white;
+  font-weight: 600;
+}
+
+.login-page {
+  width: 382px;
+  padding: 0% 0 0;
+  margin: auto;
+  margin-left: 455px;
+  margin-top: 149px;
+}
+
+
+.submitButton {
+  text-transform: uppercase;
+  outline: 0;
+  background: #00467f;
+  width: 50%;
+  border-radius: 5px;
+  border: 0;
+  margin-left: 79px;
+  margin-top: 20px;
+  padding: 10px;
+  color: #FFFFFF;
+  font-size: 14px;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
